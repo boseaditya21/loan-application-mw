@@ -6,27 +6,24 @@ var connection = mysql.createConnection({
   database : 'accounts'
 });
 
-var isConnected = false;
-var remainingLoginAttempts= 5;
+var noOfConnections=1;
 
 var restClient=
 {
 	connection()
 	{
 		var promise = new Promise(function (resolve, reject) {
-   		connection.connect(function(err){
-		if(!err)
-		{
-    		console.log("Database is connected");
-    		resolve('Database is connected');    
-		}
-		else
-		{
-    		console.log("Error connecting database");
-    		reject('Error connecting database')    
-		}
+		connection.connect(function(err){
+    	if(err)
+    	{
+        	console.error('Error:- ' + err.stack);
+        	reject('Error');
+        	return;
+    	}
+    	console.log('Connected Id:- ' + connection.threadId);
+    	resolve('Connection Successfull');
 		});
-  	});
+	});
   	return promise;
 	}
 }
