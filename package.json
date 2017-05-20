@@ -36,6 +36,7 @@
     "morgan": "^1.8.0",
     "mysql": "^2.5.4",
     "mysql-wrapper": "^0.1.1",
+    "nodemailer": "^4.0.1",
     "resource-router-middleware": "^0.6.0"
   },
   "devDependencies": {
