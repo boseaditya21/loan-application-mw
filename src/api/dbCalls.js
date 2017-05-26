@@ -210,5 +210,23 @@ var restClient=
 		});
 		return promise;
 	},
+
+	applicationForm1(reqForm)
+	{
+		console.log(reqForm);
+		var promise=new Promise(function(resolve,reject){
+			var query = connection.query('INSERT INTO application SET ?', reqForm, function (error, results, fields) {
+  			if(error)
+  			{
+  				console.log(error);
+  				reject(error);
+  			}
+  			console.log(results);
+  			console.log(fields);
+  			resolve('Successfull');
+		});
+		});
+		return promise;
+	},
 }
 export default restClient;

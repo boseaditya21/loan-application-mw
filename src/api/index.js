@@ -232,11 +232,16 @@ export default ({ config, db }) => {
 		});
 	});
 
-
-
-
-
-
+	api.post('/applicationForm1',(req,res)=>{
+		console.log('Before inserting');
+		console.log(req.body);
+		var promise = dbCalls.applicationForm1(req.body).then(function (str) {
+			res.end(str);
+		},
+		function (str) {
+			res.end(str);
+		});
+	});
 
 	/*api.post('/updateImage',(req,res)=>{
 		console.log('Before updating');
